@@ -21,6 +21,16 @@ class MessageListViewController: UIViewController, UITableViewDelegate, UITableV
         messageController.fetchMessages()
     }
     
+    private func setUpAppearance() {
+        view.backgroundColor = AppearanceHelper.backgroundGray
+        tableView.backgroundColor = AppearanceHelper.backgroundGray
+        tableView.tableHeaderView?.backgroundColor = AppearanceHelper.backgroundGray
+        
+        AppearanceHelper.stye(button: newMessageButton)
+        newMessageButton.layer.cornerRadius = newMessageButton.frame.size.width / 2
+        newMessageButton.titleLabel.font = UIFont.systemFont(ofSize: 15)
+    }
+    
     @objc private func sortMessageArray() {
         switch messageSortSegmentedControl.selectedSegmentIndex {
         case 0:
